@@ -15,13 +15,13 @@
 </ul>
     
 
-    <h3 class="text-lg font-semibold mt-4">Top 10 des derniers lancements</h3>
+<h3 class="text-lg font-semibold mt-4">Top 10 des derniers lancements</h3>
+<ul class="list-none"  style="list-style-type: none !important;">
+  <li v-for="(launch, index) in latestLaunches" :key="launch.id" @click="openModal(launch)">
+    {{ index + 1 }}. {{ launch.name }} - {{ new Date(launch.date_utc).toLocaleDateString() }}
+  </li>
+</ul>
 
-    <ul class="list-none p-0 m-0" style="list-style-type: none !important;">
-      <li v-for="(launch, index) in latestLaunches" :key="launch.id">
-        {{ index + 1 }}. {{ launch.name }} - {{ new Date(launch.date_utc).toLocaleDateString() }}
-      </li>
-    </ul>
 
 
     <div v-if="selectedLaunch" class="modal fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300">
@@ -41,10 +41,10 @@
     <p>Lieu de lancement: {{ selectedLaunch.launchpadName }}</p>
     <p>Chargements envoyés: {{ selectedLaunch.payloads.join(', ') }}</p>
     <p>Clients: {{ selectedLaunch.customers.join(', ') }}</p>
-    <button @click="selectedLaunch = null" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-600">Fermer</button>
+    <button @click="selectedLaunch = null" class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Fermer</button>
+  </div>
 </div>
 
-</div>
   </div>
 </template>
 
@@ -95,7 +95,7 @@ const openModal = (launch: any) => {
   align-items: center;
 }
 .modal-content {
-  background: rgba(245, 238, 238, 0.93);
+  background: rgba(244, 229, 229, 0.876);
   padding: 20px;
   border-radius: 5px;
   width: 500px;
