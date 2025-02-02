@@ -16,7 +16,7 @@ const openModal = (launch: any) => {
 
 <template>
   <div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold text-center mb-6">🚀 SpaceX Launches</h1>
+    <h1 class="text-4xl font-bold text-center mb-6"> SpaceX Launches 🚀</h1>
     <UpcomingLaunch />
     <LaunchList :filter="filter" @selectLaunch="openModal" />
   </div>
